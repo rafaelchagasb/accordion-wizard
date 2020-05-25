@@ -1,5 +1,4 @@
-# accordion-wizard
-Accordion wizard with VueJs
+# Wizard based in accordion with VueJS
 
 Install dependencies
 
