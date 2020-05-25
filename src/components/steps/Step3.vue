@@ -1,12 +1,9 @@
 <template>
-  <div class="step-item" v-bind:class="{ 'step-active': active }">
-    <div class="step-title" v-bind:class="{ 'complete': status == 1 , 'warn': status == 2, 'failure': status == 3}">
-      Step 1 
-
-      <step-status :status="status" />
-    </div>
-
-    <div class="step-content" v-if="active">
+  <step-base :current-step="currentStep" :index="index" :status="status">
+    <template v-slot:title>
+      Step 3
+    </template>
+    <template v-slot:default>
       <pre>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
         standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
@@ -15,35 +12,22 @@
          Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
          software like Aldus PageMaker including versions of Lorem Ipsum
       </pre>
-
       <button @click="goNext">
         Next
       </button>
-    </div>
-  </div>
+    </template>
+  </step-base>
 </template>
 
 <script>
 
-import StepMixin from './StepMixin';
-
-import StepStatus from './StepStatus';
+import StepMixin from '../accordion-wizard/StepMixin';
+import StepBase from '../accordion-wizard/StepBase';
 
 export default {
-  name: "Step2",
-  components: { StepStatus },
+  name: "Step3",
+  components: { StepBase },
   mixins: [ StepMixin ],
-  props: {
-    nextStep: {
-      type: Function
-    },
-    currentStep: {
-      type: Number
-    },
-    index: {
-      type: Number
-    }
-  },
   data() {
     return {
       canContinue: false
@@ -53,16 +37,11 @@ export default {
     goNext() {
       this.$emit("canProceed", this.canContinue);
       this.nextStep();
-      this.complete();
-    }
-  },
-  computed: {
-    active() {
-      return this.currentStep === this.index;
+      this.fail();
     }
   },
   mounted() {
-    this.canContinue = true;
+    this.canContinue = false;
   }
 };
 </script>

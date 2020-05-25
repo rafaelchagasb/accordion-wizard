@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import AccordionWizard from "./components/AccordionWizard.vue";
-import Step1 from "./components/Step1.vue";
-import Step2 from "./components/Step2.vue";
-import Step3 from "./components/Step3.vue";
-
+import AccordionWizard from "./components/accordion-wizard/AccordionWizard.vue";
+import Step1 from "./components/steps/Step1.vue";
+import Step2 from "./components/steps/Step2.vue";
+import Step3 from "./components/steps/Step3.vue";
+import Step4 from "./components/steps/Step4.vue";
 
 export default {
   name: "App",
@@ -27,6 +27,9 @@ export default {
         },
         {
           component: Step3
+        },
+        {
+          component: Step4
         }
       ]
     };

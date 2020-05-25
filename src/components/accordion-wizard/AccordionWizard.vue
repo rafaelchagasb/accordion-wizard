@@ -72,17 +72,6 @@ export default {
 }
 
 
-.step-item .step-title.complete {
-  background: #90ec90;
-}
-
-.step-item .step-title.warn {
-  background: rgb(250, 210, 31);
-}
-
-.step-item .step-title.failure {
-  background: rgb(251, 0, 0);
-}
 
 .step-item.step-active {
   width: 90%;
