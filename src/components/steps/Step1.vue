@@ -12,10 +12,13 @@
          Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
          software like Aldus PageMaker including versions of Lorem Ipsum
       </pre>
+      <button @click="goBack">
+        Back
+      </button>
       <button @click="goNext">
         Next
       </button>
-    </template>1
+    </template>
   </step-base>
 </template>
 
@@ -38,6 +41,9 @@ export default {
       this.$emit("canProceed", this.canContinue);
       this.nextStep();
       this.complete();
+    },
+    goBack(){
+      this.backStep();
     }
   },
   mounted() {

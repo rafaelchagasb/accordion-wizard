@@ -5,6 +5,7 @@
       :key="index"
       :is="steps[index].component"
       :next-step="nextStep"
+      :back-step="backStep"
       :current-step="currentStep.index"
       :index="index"
       @canProceed="proceed"
@@ -37,6 +38,11 @@ export default {
 
       this.canProceed = false;
       this.currentStep.index += 1;
+    },
+    backStep(){
+      if(this.currentStep.index === 0) return;
+
+      this.currentStep.index -= 1;
     },
     isActive(index) {
       return this.currentStep.index === index;

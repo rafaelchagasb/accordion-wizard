@@ -3,6 +3,9 @@ var mixin = {
         nextStep: {
             type: Function
         },
+        backStep: {
+            type: Function
+        },
         currentStep: {
             type: Number
         },
